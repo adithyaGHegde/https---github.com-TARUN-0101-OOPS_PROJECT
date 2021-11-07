@@ -42,3 +42,6 @@ def customerregistration(request):
 
 def checkout(request):
  return render(request, 'app/checkout.html')
+
+def asiandishes(request):
+ return render(request, 'app/asiandishes.html')

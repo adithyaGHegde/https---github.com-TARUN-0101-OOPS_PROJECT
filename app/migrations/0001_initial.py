@@ -43,7 +43,7 @@ class Migration(migrations.Migration):
             name='OrderPlaced',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('quantity', models.PositiveBigIntegerField(default=1)),
+                ('quantity', models.PositiveIntegerField(default=1)),
                 ('ordered_date', models.DateTimeField(auto_now_add=True)),
                 ('status', models.CharField(choices=[('Accepted', 'Accepted'), ('Cooking', 'Cooking'), ('On the way', 'On the way'), ('Delivered', 'Delivered'), ('Cancel', 'Cancel')], default='', max_length=50)),
                 ('customer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='app.customer')),
@@ -55,7 +55,7 @@ class Migration(migrations.Migration):
             name='Cart',
             fields=[
                 ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('quantity', models.PositiveBigIntegerField(default=1)),
+                ('quantity', models.PositiveIntegerField(default=1)),
                 ('product', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='app.product')),
                 ('user', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL)),
             ],
