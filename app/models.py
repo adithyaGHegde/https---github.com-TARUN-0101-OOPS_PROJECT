@@ -30,7 +30,7 @@ def __str__(self):
 CATEGORY_CHOICES = (
     ('C', 'COFFEE'),
     ('T', 'TEA'),
-    ('S', 'SNAKS'),
+    ('S', 'SNACKS'),
     ('B', 'BRUNCH'),
     
 )
@@ -50,7 +50,7 @@ def __str__(self):
 class Cart(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantity = models.PositiveBigIntegerField(default=1)
+    quantity = models.PositiveIntegerField(default=1)
 
 def __str__(self):
     return str(self.id)
@@ -68,7 +68,7 @@ class OrderPlaced(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     customer = models.ForeignKey(customer, on_delete=models.CASCADE)
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantity = models.PositiveBigIntegerField(default=1)
+    quantity = models.PositiveIntegerField(default=1)
     ordered_date = models.DateTimeField(auto_now_add=True)
     status = models.CharField(max_length=50, choices=STATUS_CHOICES, default= '')
 
